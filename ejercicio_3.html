@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eliminacion de numeros Array</title>
+</head>
+<body>
+    <h1>eliminacion de numeros Array</h1>
+
+    <button onclick="agregarElemento()">Agregar Elemento</button>
+    <button onclick="eliminarUltimoElemento()">Eliminar Último Elemento</button>
+    <button onclick="mostrarContenido()">Mostrar Contenido</button>
+
+    <p id="contenidoArray"></p>
+
+    <script>
+        // Array para almacenar los elementos
+        var array = [];
+
+        function agregarElemento() {
+            var elemento = prompt("Introduce un elemento:");
+            array.push(elemento);
+            mostrarContenido();
+        }
+
+        function eliminarUltimoElemento() {
+            if (array.length > 0) {
+                array.pop();
+                mostrarContenido();
+            } else {
+                alert("El array está vacío, no se pueden eliminar elementos.");
+            }
+        }
+
+        function mostrarContenido() {
+            var contenido = "Contenido del Array: ";
+            if (array.length === 0) {
+                contenido += "El array está vacío.";
+            } else {
+                contenido += array.join(", ");
+            }
+            document.getElementById("contenidoArray").innerHTML = contenido;
+        }
+    </script>
+</body>
+</html>
