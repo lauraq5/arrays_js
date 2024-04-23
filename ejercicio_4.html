@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Pares</title>
+</head>
+<body>
+    <h1>Números Pares</h1>
+    <p>Introduce un conjunto de números separados por comas:</p>
+    <input type="text" id="inputNumeros">
+    <button onclick="obtenerNumeros()">Pares</button>
+
+    <div id="tablaOriginal">
+        <!-- Aquí se mostrará la tabla original -->
+    </div>
+
+    <div id="tablaPares">
+        <!-- Aquí se mostrará la tabla con los números pares -->
+    </div>
+
+    <script>
+        function obtenerNumeros() {
+            var input = document.getElementById("inputNumeros").value;
+            var numeros = input.split(",").map(function(item) {
+                return parseInt(item.trim());
+            });
+
+            mostrarTablaOriginal(numeros);
+            mostrarTablaPares(numeros);
+        }
+
+        function mostrarTablaOriginal(numeros) {
+            var tablaOriginal = "<h2>Tabla Original</h2><table border='1'><tr><th>Números</th></tr>";
+
+            for (var i = 0; i < numeros.length; i++) {
+                tablaOriginal += "<tr><td>" + numeros[i] + "</td></tr>";
+            }
+
+            tablaOriginal += "</table>";
+            document.getElementById("tablaOriginal").innerHTML = tablaOriginal;
+        }
+
+        function mostrarTablaPares(numeros) {
+            var pares = numeros.filter(function(num) {
+                return num % 2 === 0;
+            });
+
+            var tablaPares = "<h2>Tabla de Números Pares</h2><table border='1'><tr><th>Números Pares</th></tr>";
+
+            for (var i = 0; i < pares.length; i++) {
+                tablaPares += "<tr><td>" + pares[i] + "</td></tr>";
+            }
+
+            tablaPares += "</table>";
+            document.getElementById("tablaPares").innerHTML = tablaPares;
+        }
+    </script>
+</body>
+</html>
