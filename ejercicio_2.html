@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concatenador de Cadenas</title>
+</head>
+<body>
+    <h1>Concatenador de Cadenas</h1>
+    <p>Introduce la primera cadena de elementos separados por coma:</p>
+    <input type="text" id="inputCadena1">
+    <p>Introduce la segunda cadena de elementos separados por coma:</p>
+    <input type="text" id="inputCadena2">
+    <button onclick="concatenar()">Concatenar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function concatenar() {
+            var cadena1 = document.getElementById("inputCadena1").value;
+            var cadena2 = document.getElementById("inputCadena2").value;
+
+            // Eliminar espacios en blanco alrededor de cada elemento y luego dividir por comas
+            var elementos1 = cadena1.split(",").map(function(item) {
+                return item.trim();
+            });
+
+            var elementos2 = cadena2.split(",").map(function(item) {
+                return item.trim();
+            });
+
+            // Concatenar las dos listas de elementos
+            var resultado = elementos1.concat(elementos2);
+
+            // Mostrar el resultado en pantalla
+            document.getElementById("resultado").innerHTML = "Cadenas concatenadas: " + resultado.join(", ");
+        }
+    </script>
+</body>
+</html>
